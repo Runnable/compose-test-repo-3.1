@@ -1,0 +1,12 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+      - "5000"
+    links:
+      - 'db'
+    environment:
+      - DB_PORT=tcp://db:5432
+  db:
+    image: "postgres"
